@@ -1,0 +1,125 @@
+ul.banner-list {
+    padding: 20px 0px 0 14px;
+}
+ul.banner-list li {
+    color: #fff;
+    list-style: disc;
+}
+
+.banner-form {
+    background-color: #040a24ab;
+    padding: 20px;
+    border: 1px solid #10193e;
+    border-radius: 20px;
+}
+form.tu-themeform {
+    background-color: #222c54;
+    border-radius: 10px;
+}
+.banner-form h3 {
+    color: #fff;   
+    padding-bottom: 10px;
+    padding: 15px 0 11px 20px;
+    background-color: #2d3450;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.tu-placeholderholder {
+   
+    background-color: transparent ;
+   
+}
+.tu-eduplatform {
+    padding: 29px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+}
+.tu-eduplatform:hover {
+    box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.04), 0px 3px 16px rgba(0, 0, 0, 0.04);
+}
+.tu-eduplatform_img {
+    margin: 0;
+    flex: none;
+    width: 100%;
+    max-width: 44px;
+}
+.tu-eduplatform_img + .tu-eduplatform_info {
+    margin-left: 20px;
+}
+.tu-maintitle {
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.tu-oursuccess {
+    padding: 29px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+.tu-oursuccess_img {
+    width: 98px;
+    height: 98px;
+    display: flex;
+    align-items: center;
+    border-radius: 49px;
+    justify-content: center;
+    background: #F7F8FC;
+    margin: 0 auto 20px !important;
+}
+.tu-oursuccess_img img {
+    display: block;
+    max-width: 50px !important;
+}
+
+
+.step-icon {
+      width: 120px;
+      height: 120px;
+      background-color: #f4f4f4;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .step-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .step-text {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .arrow {
+      font-size: 1.5rem;
+      margin: auto;
+    }
+
+    .order-btn {
+      background-color: #f97316;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      margin-top: 40px;
+    }
+
+    .order-btn:hover {
+      background-color: #d85b0f;
+    }
+    .tu-main-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: #F7F8FC;
+}
