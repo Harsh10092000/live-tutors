@@ -1,16 +1,3 @@
-export const phoneFormat = (phone) => {
-    return phone.slice(0, 3) + "*******";
-}
-
-export const emailFormat = (email) => {
-    return email.slice(0, 3) + "****@gmail.com";
-}
-
-export const nameFormat = (name) => {
-    return name;
-}
-
-
 export const addminPhoneNmber = "67785-63456";
 export const adminPhoneNumberUrl = "+916778563456";
 
@@ -27,5 +14,5 @@ export const adminOfficalWebsite = "https://www.livetutors.com";
 
 export const officeAddress = "123, Main Street, Anytown, USA";
 
-
+export const websiteURL = "http://localhost:3000";
 
