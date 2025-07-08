@@ -19,8 +19,17 @@ const Skills = ({ skills }) => {
                                         <div className="tu-accodion-holder">
                                                     <h5 className="collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseOneba" aria-expanded="true" aria-controls="flush-collapseOneba">{item.skill_name}</h5>
                                                     <ul className="tu-branchdetail">
-                                                <li><i className="icon icon-arrow-up"></i><span>{item.from_level}</span></li>
-                                                <li><i className="icon icon-arrow-down"></i><span>{item.to_level}</span></li>
+                                                <li style={{width: '100%'}}>
+                                                    <span>Level: {item.from_level} → {item.to_level}</span>
+                                                    <div style={{background: '#eee', borderRadius: 4, height: 8, marginTop: 4}}>
+                                                        <div style={{
+                                                            width: `${(parseInt(item.to_level) / 10) * 100}%`,
+                                                            background: '#4caf50',
+                                                            height: '100%',
+                                                            borderRadius: 4
+                                                        }}></div>
+                                                    </div>
+                                                </li>
                                             </ul>
                                           
                                         </div>

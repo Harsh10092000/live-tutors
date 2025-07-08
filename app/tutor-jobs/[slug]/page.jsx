@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import pool from '@/lib/db';
 import React from 'react';
 import TutorProfile from '@/components/jobDetailJob/TutorProfile';

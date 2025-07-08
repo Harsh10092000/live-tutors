@@ -1,4 +1,4 @@
-
+export const dynamic = "force-dynamic";
 import React from "react";
 import pool from "@/lib/db";
 import Page1 from "./page1";
