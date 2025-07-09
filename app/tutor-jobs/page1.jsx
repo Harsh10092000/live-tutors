@@ -101,9 +101,7 @@ const SearchListing = ({ data, recordsPerPage, currentPage }) => {
     const end = start + pagination.perPage;
 
     setRequests(filtered);
-    if(filtered.length > 0) {
-      setDisplayedRequests(filtered.slice(start, end));
-    }
+    setDisplayedRequests((filtered || []).slice(start, end));
     setPagination(prev => ({
       ...prev,
       total,
@@ -176,9 +174,7 @@ const SearchListing = ({ data, recordsPerPage, currentPage }) => {
     
     const start = (page - 1) * pagination.perPage;
     const end = start + pagination.perPage;
-    if(requests.length > 0) {
-      setDisplayedRequests(requests.slice(start, end));
-    }
+    setDisplayedRequests(requests.slice(start, end));
   };
 
   const handleSort = (value) => {
