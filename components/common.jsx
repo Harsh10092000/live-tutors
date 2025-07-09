@@ -33,23 +33,42 @@ export const formatTutoringTypeDisplayTitle = (type) => {
       .join(' | ');
   };
 
-  export const formatTutoringPreferencesArray  = (preferences, travel_distance) => {
-    console.log("preferences : ", preferences);
-    //const formattedPreferences = JSON.parse(preferences);
-    const formattedPreferences = Array.isArray(preferences) ? preferences : JSON.parse(preferences);
-    if (!preferences) return '';
-    // return JSON.parse(preferences).map(pref => pref.trim());
-    return formattedPreferences 
-          .map(t => {
-            const trimmed = t.trim();
-            if (trimmed === 'Online (using Zoom etc)') return 'Online Teaching';
-            if (trimmed === 'At my place (home/institute)') return 'Tutor\'s Place (Home or Institute)';
-            if (trimmed === 'Travel to student') return `Tutor will Travel${travel_distance ? ` (Within ${travel_distance} km)` : ''}`;
-            return trimmed;
-          })
-          .join(' | '); 
+  // export const formatTutoringPreferencesArray  = (preferences, travel_distance) => {
+  //   console.log("preferences : ", preferences);
+  //   //const formattedPreferences = JSON.parse(preferences);
+  //   const formattedPreferences = Array.isArray(preferences) ? preferences : JSON.parse(preferences);
+  //   if (!preferences) return '';
+  //   // return JSON.parse(preferences).map(pref => pref.trim());
+  //   return formattedPreferences 
+  //         .map(t => {
+  //           const trimmed = t.trim();
+  //           if (trimmed === 'Online (using Zoom etc)') return 'Online Teaching';
+  //           if (trimmed === 'At my place (home/institute)') return 'Tutor\'s Place (Home or Institute)';
+  //           if (trimmed === 'Travel to student') return `Tutor will Travel${travel_distance ? ` (Within ${travel_distance} km)` : ''}`;
+  //           return trimmed;
+  //         })
+  //         .join(' | '); 
+  // };
+
+  export const formatTutoringPreferencesArray = (type, travel_distance) => {
+    if (!type) return '';
+    // Split by either comma or pipe
+    return type.split(/[,|]/)
+      .map(t => {
+        const trimmed = t.trim();
+        if (trimmed === 'Online (using Zoom etc)') return 'Online Teaching';
+        if (trimmed === 'At my place (home/institute)') return 'Tutor\'s Place (Home or Institute)';
+        if (trimmed === 'Travel to student') return `Tutor will Travel${travel_distance ? ` (Within ${travel_distance} km)` : ''}`;
+        return trimmed;
+      })
+      .join(' | ');
   };
 
+
+  export const formatLanguagePreferencesArray = (preferences) => {
+    if (!preferences) return '';
+    return JSON.parse(preferences).map(pref => pref.trim()).join(', ');
+  };
 
   export const convertToSmallWord = (word) => {
     return word.toLowerCase();

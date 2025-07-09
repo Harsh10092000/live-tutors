@@ -51,6 +51,14 @@ const Header = () => {
                                 </li>
                             </ul> */}
                         </li>
+
+                        <li className="menu-item-has-children nav-item">
+                                <Link className="nav-link" href="/assignment-help">
+                                Assignment Help                  
+                                </Link>
+                               
+                        </li>
+
                             {/* <li className="nav-item">
                                 <Link className="nav-link" href="/assignments">Assignment Help</Link>
                         </li> */}

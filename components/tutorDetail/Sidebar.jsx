@@ -1,7 +1,7 @@
 import { hiddenPhoneNumber, hiddenEmail } from '../common';
 const Sidebar = ({tutoring_preferences, name, phone, email}) => {
     //const tutoring_type_text = tutoring_preferences.split(",");
-    const tutoring_type_text = JSON.parse(tutoring_preferences);
+    const tutoring_type_text = tutoring_preferences;
     return (
         <aside className="tu-asidedetail">
             <div className="tu-asideinfo text-center">

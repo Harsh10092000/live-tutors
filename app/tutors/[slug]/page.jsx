@@ -54,7 +54,7 @@ const page = async ({ params }) => {
                 <div className="container">
                     <div className="row gy-4">
                         <div className="col-xl-8 col-xxl-9">
-                            <ProfileHeader slug={slug} name={data.row.name} profile_tag_line={data.row.profile_tag_line} profile_pic_url={data.row.profile_pic_url} language_preferences={data.row.language_preferences} city={data.row.city} state={data.row.state} gender={data.row.gender} tutoring_preferences={data.row.tutoring_preferences} travel_distance={data.row.travel_distance} min_fee={data.row.fee_min} max_fee={data.row.fee_max} fee_charged_for={data.row.fee_charged_for} created_at={data.row.created_at} phone={data.row.phone} />
+                            <ProfileHeader slug={slug} name={data.row.name} profile_tag_line={data.row.profile_tag_line} profile_pic_url={data.row.profile_pic_url} language_preferences={data.row.language_preferences} city={data.row.city} state={data.row.state} gender={data.row.gender} tutoring_preferences={data.row.tutoring_preferences} travel_distance={data.row.travel_distance} min_fee={data.row.fee_min} max_fee={data.row.fee_max} fee_charged_for={data.row.fee_charged_for} created_at={data.row.created_at} phone={data.row.phone} intro_video_url={data.row.intro_video_url} />
                             <div className="tu-detailstabs">
                                 <ul className="nav nav-tabs tu-nav-tabs" id="myTab" role="tablist">
                                     <li className="nav-item" role="presentation">

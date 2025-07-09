@@ -16,3 +16,4 @@ export const officeAddress = "123, Main Street, Anytown, USA";
 
 export const websiteURL = "http://localhost:3000";
 
+export const img_url = "http://localhost:8010/tutorImages/";

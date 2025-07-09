@@ -454,3 +454,25 @@ a {
                         align-items: center;
                         padding-bottom: 10px;
                       }
+
+                      /* Video Play Button Hover Effects */
+                      .video-play-button {
+                        transition: all 0.3s ease !important;
+                      }
+
+                      .video-play-button:hover {
+                        transform: scale(1.1) !important;
+                        color: #ff5e14 !important;
+                      }
+
+                      .video-play-button:hover + div,
+                      .video-play-button:hover {
+                        background-color: rgba(0,0,0,0.8) !important;
+                        transform: scale(1.05) !important;
+                      }
+
+                      .tutor-profile-image {
+                        height: 109px !important;
+                        width: 109px !important;
+                        border-radius: 5px;
+                      }

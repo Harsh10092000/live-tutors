@@ -11,7 +11,7 @@ import TutorTabs from '@/components/jobDetailJob/TutorTabs';
   const getData = async (slug) => {
     try {
       const db = await pool;
-      const q = "SELECT * from tutor_requests where url = ?";
+      const q = "SELECT GROUP_CONCAT(tutor_skills.skill_name) AS skill_names, tutor_info.name, tutor_info.profile_tag_line, tutor_info.profile_pic_url, tutor_info.city, tutor_info.state, tutor_info.gender, tutor_info.tutoring_preferences, tutor_info.travel_distance, tutor_info.fee_min, tutor_info.fee_charged_for, tutor_info.created_at, tutor_info.intro_video_url, tutor_info.language_preferences, tutor_info.tutor_id FROM tutor_info JOIN tutor_skills ON tutor_info.user_id = tutor_skills.user_id GROUP BY tutor_info.user_id ORDER BY tutor_info.id DESC;";
       const [rows] = await db.query(q, slug);
       return {
         row: rows[0],

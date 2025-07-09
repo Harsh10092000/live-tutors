@@ -1,3 +1,4 @@
+
 import { Inter } from 'next/font/google';
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import './fontawesome'
@@ -12,7 +13,7 @@ import Footer from "@/components/common/Footer";
 import { SessionProvider } from 'next-auth/react';
 import './globals.css';
 import Providers from './providers';
-
+import ProgressBarProvider from './progressBarprovider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -30,13 +31,24 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
+      
       <body className={inter.className}>
+      <ProgressBarProvider>
         <Providers>
+        <ProgressBarProvider
+          height="4px"
+          color="#fffd00"
+          options={{ showSpinner: false }}
+          shallowRouting
+        >
           <Header />
           {children}
           <Footer />
+          </ProgressBarProvider>
         </Providers>
+        </ProgressBarProvider>
       </body>
+      
     </html>
   );
 }
