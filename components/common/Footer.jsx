@@ -5,7 +5,9 @@ import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faTwitter, faLinkedinIn, faDribbble, faTwitch } from '@fortawesome/free-brands-svg-icons'
 
+
 const Footer = () => {
+    
   return (
     <footer>
     <div className="tu-footer">

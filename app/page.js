@@ -12,7 +12,11 @@ import Counter from "@/components/home/Counter";
 import FeaturedInstructors from "@/components/home/FeaturedInstructors";
 import SuccessStories from "@/components/home/SuccessStories";
 import Categories from "@/components/home/Categories";
+
+
 export default function Home() {
+
+
   return (
     <main>
       <UserSession />

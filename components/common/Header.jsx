@@ -2,10 +2,17 @@
 import React from 'react'
 import Link from 'next/link'
 import { useSession } from 'next-auth/react';
+import { toast } from 'react-toastify';
+import useJobNotifications from './useJobNotifications';
+
+
 
 const Header = () => {
     const { data: session, status } = useSession();
-
+    useJobNotifications((data) => {
+        //alert(data.message);
+        toast.success(`${data.title}: ${data.message}`);
+      });
   return (
         <header className="tu-header">
             <nav className="navbar navbar-expand-xl tu-navbar">

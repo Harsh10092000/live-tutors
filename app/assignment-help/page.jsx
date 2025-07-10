@@ -1,9 +1,13 @@
+"use client"
 import React from "react";
 import "./page.css";
 import Hero from "@/components/home/Hero";
 import Image from "next/image";
 
 const page = () => {
+
+ 
+
   return (
     <>
       <div className="tu-banner">

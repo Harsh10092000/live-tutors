@@ -14,12 +14,18 @@ import { SessionProvider } from 'next-auth/react';
 import './globals.css';
 import Providers from './providers';
 import ProgressBarProvider from './progressBarprovider';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'LiveTutors - Find Your Perfect Tutor',
   description: 'Connect with expert tutors for personalized learning experiences',
 };
+
+
 
 export default function RootLayout({ children }) {
   return (
@@ -33,6 +39,7 @@ export default function RootLayout({ children }) {
       </head>
       
       <body className={inter.className}>
+     
       <ProgressBarProvider>
         <Providers>
         <ProgressBarProvider
@@ -42,6 +49,19 @@ export default function RootLayout({ children }) {
           shallowRouting
         >
           <Header />
+          <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        style={{ zIndex: 9999 }}
+      />
           {children}
           <Footer />
           </ProgressBarProvider>
