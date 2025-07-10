@@ -244,7 +244,7 @@ const page = async ({ params }) => {
                             </div>
                         </div>
                         <div className="col-xl-4 col-xxl-3">
-                            <Sidebar tutoring_preferences={data.row.tutoring_preferences} name={data.row.name} phone={data.row.phone} email={data.row.email} />
+                            <Sidebar can_do_assignment={data.row.can_do_assignmnet} total_exp_yrs={data.row.total_exp_yrs} online_exp={data.row.online_exp} total_online_exp_yrs={data.row.total_online_exp_yrs} tutoring_preferences={data.row.tutoring_preferences} name={data.row.name} phone={data.row.phone} email={data.row.email} />
                         </div>
                     </div>
 

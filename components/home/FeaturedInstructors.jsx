@@ -1,34 +1,52 @@
-'use client';
+export const dynamic = "force-dynamic";
+import React from "react";
+import pool from "@/lib/db";
+import FeaturedTutors from "../common/FeaturedTutors";
+import Image from "next/image";
+const getData = async () => {
+  try {
+    const db = await pool;
+    const q = `SELECT GROUP_CONCAT(tutor_skills.skill_name) as skill_names, tutor_info.created_at, name, profile_pic_url, profile_tag_line, city, state, tutor_id, fee_min, fee_charged_for FROM tutor_info LEFT JOIN tutor_skills ON tutor_info.user_id = tutor_skills.user_id GROUP BY tutor_info.user_id order by tutor_info.id desc limit 3`;
+    const [rows] = await db.query(q);
 
-import React from 'react'
-import useSlider from '@/hooks/useSlider'
-import Image from 'next/image'
 
-const FeaturedInstructors = () => {
-  useSlider('#tu-featurelist', {
-    perPage: 4,
-    gap: 24,
-    arrows: true,
-    pagination: false,
-    breakpoints: {
-      1399: {
-        perPage: 3,
-      },
-      991: {
-        perPage: 2,
-      },
-      575: {
-        perPage: 1,
-      }
-    }
-  });
+    return { row: rows };
+  } catch (err) {
+    return err;
+  }
+};
+
+const page = async () => {
+
+  const res = await getData();
+  const data = res.row;
+
+  console.log("data : " , data);
 
   return (
-    <section className="tu-main-section">
+    <div className="container">
+      <title>Live Tutors - View All Tutoring Requests</title>
+      <meta
+        name="description"
+        content="Discover your perfect tutoring request with Live Tutors. Explore a curated selection of tutoring requests tailored to your needs."
+      />
+      <meta name="author" content="Live Tutors" />
+      <link rel="canonical" href="#" />
+      
+{/* 
+      <div style={{ display: "none" }}>
+        {data.map((item, index) => (
+          <a key={index} href={`/${item.url}`}>
+            {item.url}
+          </a>
+        ))}
+      </div> */}
+<section className="tu-main-section">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className="tu-maintitle text-center">
+
               <Image src="/images/zigzag-line.svg" alt="img" width={100} height={20} />
                             <h4>Our featured instructors</h4>
                             <h2>Every instructor is professional and highly qualified</h2>
@@ -36,178 +54,11 @@ const FeaturedInstructors = () => {
                         </div>
                     </div>
                 </div>
-        <div id="tu-featurelist" className="splide tu-featurelist tu-splidedots">
-          <div className="splide__track">
-            <ul className="splide__list">
-              <li className="splide__slide">
-                <div className="tu-featureitem">
-                                    <figure>
-                    <a href="tutor-detail.html">
-                      <Image width={200} height={200} src="/images/index/qualified/img-01.jpg" alt="image-description" />
-                    </a>
-                    <span className="tu-featuretag">FEATURED</span>
-                                    </figure>
-                  <div className="tu-authorinfo">
-                    <div className="tu-authordetail">
-                                            <figure>
-                        <Image width={50} height={50} src="/images/index/professionol/img-01.jpg" alt="image-description"/>
-                                            </figure>
-                      <div className="tu-authorname">
-                        <h5>
-                          <a href="tutor-detail.html">Dwayne Garrett</a>
-                          <i className="icon icon-check-circle tu-greenclr" data-tippy-trigger="mouseenter" data-tippy-html="#tu-verifed" data-tippy-interactive="true" data-tippy-placement="top"></i>
-                        </h5>
-                                                <span>Arlington, TN</span>
-                                            </div>
-                      <ul className="tu-authorlist">
-                        <li><span>Starting from:<em>$893.30/hr</em></span></li>
-                        <li><span>Mobile:<em>xxx-xxxxx-33</em></span></li>
-                        <li><span>Whatsapp:<em>xxx-xxxxx-11</em></span></li>
-                        <li><span>Qualification:<em>B.Tech/B.E.</em></span></li>
-                                            </ul>
-                                        </div>
-                    <div className="tu-instructors_footer">
-                      <div className="tu-rating">
-                        <i className="fas fa-star"></i>
-                                                <h6>5.0</h6>
-                                                <span>(66,951)</span>
-                                            </div>
-                      <div className="tu-instructors_footer-right">
-                        <a href="javascript:void(0);"><i className="icon icon-heart"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-              <li className="splide__slide">
-                <div className="tu-featureitem">
-                                    <figure>
-                    <a href="tutor-detail.html">
-                      <Image width={200} height={200} src="/images/index/qualified/img-02.jpg" alt="image-description" />
-                    </a>
-                    <span className="tu-featuretag">FEATURED</span>
-                                    </figure>
-                  <div className="tu-authorinfo">
-                    <div className="tu-authordetail">
-                                            <figure>
-                        <Image width={50} height={50} src="/images/index/professionol/img-02.jpg" alt="image-description" />
-                                            </figure>
-                      <div className="tu-authorname">
-                        <h5>
-                          <a href="tutor-detail.html">Gwendolyn Parker</a>
-                          <i className="icon icon-check-circle tu-greenclr" data-tippy-trigger="mouseenter" data-tippy-html="#tu-verifed" data-tippy-interactive="true" data-tippy-placement="top"></i>
-                        </h5>
-                                                <span>Las Vegas, TN</span>
-                                            </div>
-                      <ul className="tu-authorlist">
-                        <li><span>Starting from:<em>$1,385.10/hr</em></span></li>
-                        <li><span>Mobile:<em>xxx-xxxxx-11</em></span></li>
-                        <li><span>Whatsapp:<em>xxx-xxxxx-80</em></span></li>
-                        <li><span>Qualification:<em>B.Tech/B.E.</em></span></li>
-                                            </ul>
-                                        </div>
-                    <div className="tu-instructors_footer">
-                      <div className="tu-rating">
-                        <i className="fas fa-star"></i>
-                                                <h6>5.0</h6>
-                                                <span>(38,494)</span>
-                                            </div>
-                      <div className="tu-instructors_footer-right">
-                        <a href="javascript:void(0);"><i className="icon icon-heart"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-              <li className="splide__slide">
-                <div className="tu-featureitem">
-                                    <figure>
-                    <a href="tutor-detail.html">
-                      <Image width={200} height={200} src="/images/index/qualified/img-03.jpg" alt="image-description" />
-                    </a>
-                    <span className="tu-featuretag">FEATURED</span>
-                                    </figure>
-                  <div className="tu-authorinfo">
-                    <div className="tu-authordetail">
-                                            <figure>
-                        <Image width={50} height={50} src="/images/index/professionol/img-03.jpg" alt="image-description" />
-                                            </figure>
-                      <div className="tu-authorname">
-                        <h5>
-                          <a href="tutor-detail.html">Glen Burns</a>
-                          <i className="icon icon-check-circle tu-greenclr" data-tippy-trigger="mouseenter" data-tippy-html="#tu-verifed" data-tippy-interactive="true" data-tippy-placement="top"></i>
-                        </h5>
-                                                <span>Chicago, OH</span>
-                                            </div>
-                      <ul className="tu-authorlist">
-                        <li><span>Starting from:<em>$1,336.83/hr</em></span></li>
-                        <li><span>Mobile:<em>xxx-xxxxx-11</em></span></li>
-                        <li><span>Whatsapp:<em>xxx-xxxxx-46</em></span></li>
-                        <li><span>Qualification:<em>B.Tech/B.E.</em></span></li>
-                                            </ul>
-                                        </div>
-                    <div className="tu-instructors_footer">
-                      <div className="tu-rating">
-                        <i className="fas fa-star"></i>
-                                                <h6>5.0</h6>
-                                                <span>(47,044)</span>
-                                            </div>
-                      <div className="tu-instructors_footer-right">
-                        <a href="javascript:void(0);"><i className="icon icon-heart"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-              <li className="splide__slide">
-                <div className="tu-featureitem">
-                                    <figure>
-                    <a href="tutor-detail.html">
-                      <Image width={200} height={200} src="/images/index/qualified/img-04.jpg" alt="image-description" />
-                    </a>
-                    <span className="tu-featuretag">FEATURED</span>
-                                    </figure>
-                  <div className="tu-authorinfo">
-                    <div className="tu-authordetail">
-                                            <figure>
-                        <Image width={50} height={50} src="/images/index/professionol/img-04.jpg" alt="image-description" />
-                                            </figure>
-                      <div className="tu-authorname">
-                        <h5>
-                          <a href="tutor-detail.html">William Williams</a>
-                          <i className="icon icon-check-circle tu-greenclr" data-tippy-trigger="mouseenter" data-tippy-html="#tu-verifed" data-tippy-interactive="true" data-tippy-placement="top"></i>
-                        </h5>
-                                                <span>Nashville, IL</span>
-                                            </div>
-                      <ul className="tu-authorlist">
-                        <li><span>Starting from:<em>$1,198.12/hr</em></span></li>
-                        <li><span>Mobile:<em>xxx-xxxxx-54</em></span></li>
-                        <li><span>Whatsapp:<em>xxx-xxxxx-88</em></span></li>
-                        <li><span>Qualification:<em>B.Tech/B.E.</em></span></li>
-                                            </ul>
-                                        </div>
-                    <div className="tu-instructors_footer">
-                      <div className="tu-rating">
-                        <i className="fas fa-star"></i>
-                                                <h6>5.0</h6>
-                        <span>(47,044)</span>
-                                            </div>
-                      <div className="tu-instructors_footer-right">
-                        <a href="javascript:void(0);"><i className="icon icon-heart"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-        <div className="tu-mainbtn">
-          <a href="search-listing.html" className="tu-primbtn-lg"><span>Explore all instructors</span><i className="icon icon-chevron-right"></i></a>
-                </div>
-            </div>
-        </section>
-  )
-}
+      <FeaturedTutors data={data}  />
+      </div>
+      </section>
+    </div>
+  );
+};
 
-export default FeaturedInstructors
+export default page;

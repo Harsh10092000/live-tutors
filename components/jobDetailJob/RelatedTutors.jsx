@@ -1,15 +1,27 @@
-'use client';
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-
-const RelatedTutors = () => {
+export const dynamic = "force-dynamic";
+import React from "react";
+import pool from "@/lib/db";
+import FeaturedTutorCard from "../common/FeaturedTutorCard";
+const getData = async () => {
+  try {
+    const db = await pool;
+    const q = `SELECT GROUP_CONCAT(tutor_skills.skill_name) as skill_names,  tutor_info.created_at, name, profile_pic_url, profile_tag_line, city, state, tutor_id, fee_min, fee_charged_for FROM tutor_info LEFT JOIN tutor_skills ON tutor_info.user_id = tutor_skills.user_id GROUP BY tutor_info.user_id order by tutor_info.id desc limit 3`;
+    const [rows] = await db.query(q);
+    console.log(rows);
+    return { row: rows };
+  } catch (err) {
+    return err;
+  }
+};
+const RelatedTutors = async () => {
+    const res = await getData();
+    const data = res.row;
   return (
     <>
       <div className="tu-explore-title">
           <h3>Explore related tutors</h3>
       </div>
-      <div className="tu-explore-content row gy-4">
+      {/* <div className="tu-explore-content row gy-4">
           <div className="col-12 col-md-6 col-lg-4 col-xl-6 col-xxl-4">
               <div className="tu-featureitem">
                   <figure>
@@ -57,7 +69,14 @@ const RelatedTutors = () => {
                   </div>
               </div>
           </div>
-          {/* Similar blocks for other tutors */}
+         
+      </div> */}
+      <div className="tu-explore-content row gy-4">
+      <div className="col-12 col-md-6 col-lg-4 col-xl-6 col-xxl-4">
+      {data.length > 0 && data.map((item, index) => (
+        <FeaturedTutorCard item={item} index={index} />
+      ))}
+      </div>
       </div>
     </>
   );

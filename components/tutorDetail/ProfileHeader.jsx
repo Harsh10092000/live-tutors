@@ -146,7 +146,7 @@ const ProfileHeader = ({ name, profile_tag_line, profile_pic_url, language_prefe
                                             <li key={index}>{language}</li>
                                         )
                                     })} */}
-                                    <li>{language_preferences}</li>
+                                    <li>{language_preferences != "[]"? language_preferences : "No language preferences"}</li>
                                 </ul>
                             </div>
                         </div>
@@ -158,7 +158,8 @@ const ProfileHeader = ({ name, profile_tag_line, profile_pic_url, language_prefe
                     <i className="icon icon-map-pin"></i>
                     <div className="tu-detail-content">
                         <h6>Mode of Teaching</h6>
-                        <p>{formatTutoringPreferencesArray(tutoring_preferences, travel_distance)}</p>
+                       
+                        <p>{tutoring_preferences != "[]" ? formatTutoringPreferencesArray(tutoring_preferences, travel_distance) : "No tutoring preferences"}</p>
                     </div>
                 </div>
             </div>
