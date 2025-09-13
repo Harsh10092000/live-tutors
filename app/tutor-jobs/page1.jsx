@@ -182,7 +182,7 @@ const SearchListing = ({ data, recordsPerPage, currentPage }) => {
   };
 
   return (
-    <main className="tu-bgmain tu-main">
+    <main className=" tu-main">
       <section className="tu-main-section">
         <div className="container">
           <div className="row">

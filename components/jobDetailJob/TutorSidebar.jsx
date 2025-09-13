@@ -4,7 +4,11 @@ import Link from 'next/link';
 import {adminPhoneNumberUrl, adminWhatsappNumberURL } from '@/app/utils';
 import { hiddenPhoneNumber, hiddenEmail } from '../common';
 
-const TutorSidebar = ({ tutoring_type, name, email, phone }) => {
+import { useSession } from 'next-auth/react';
+
+const TutorSidebar = ({ tutoring_type, name, email, phone, user_id }) => {
+    const { data: session } = useSession();
+    const isAddedByMe = (session?.user?.id != null) && (user_id != null) && (String(session.user.id) === String(user_id));
     const tutoring_type_text = tutoring_type.split(",");
 
     return (
@@ -47,25 +51,26 @@ const TutorSidebar = ({ tutoring_type, name, email, phone }) => {
                 <ul className="tu-listinfo">
                     <li>
                         <span className="tu-bg-voilet"><i className="icon icon-user"></i></span>
-                        <h6>{name}</h6>
+                        <h6>{name || 'Not shared'}</h6>
                     </li>
                     <li>
                         <span className="tu-bg-maroon"><i className="icon icon-phone-call"></i></span>
-                        <h6>{hiddenPhoneNumber(phone)}</h6>
+                        <h6>{phone ? hiddenPhoneNumber(phone) : 'Not shared'}</h6>
                     </li>
                     <li>
                         <span className="tu-bg-maroon"><i className="icon icon-mail"></i></span>
-                        <h6>{hiddenEmail(email)}</h6>
+                        <h6>{email ? hiddenEmail(email) : 'Not shared'}</h6>
                     </li>
 
 
                     <li>
                         <span className="tu-bg-green"><i className="fab fa-whatsapp"></i></span>
-                        <h6>{hiddenPhoneNumber(phone)}</h6>
+                        <h6>{phone ? hiddenPhoneNumber(phone) : 'Not shared'}</h6>
                     </li>
 
                 </ul>
             </div>
+            {!isAddedByMe && (
             <div className="tu-unlockfeature text-center">
                 <h6>
                     Need Help? Click the button below to Chat with admin
@@ -75,6 +80,7 @@ const TutorSidebar = ({ tutoring_type, name, email, phone }) => {
                     <i className="icon icon-whatsapp" style={{color: "white"}}></i>
                 </a>
             </div>
+            )}
         </aside>
     );
 };

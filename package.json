@@ -22,6 +22,7 @@
     "next-auth": "^4.24.5",
     "next-nprogress-bar": "^3.0.0-beta.2",
     "nodemailer": "^6.9.7",
+    "razorpay": "^2.9.6",
     "react": "^18",
     "react-dom": "^18",
     "react-toastify": "^11.0.5",

@@ -64,9 +64,9 @@ const TutorCard = ({ request }) => {
                             border: "2px solid #f1e9f7"
                         }}
                     /> */}
-                    <figure>
+                        <figure>
                         <img className='tutor-profile-image' src={img_url + profile_pic_url} alt={name} width={110} height={102} />
-                    </figure>
+                        </figure>
                     {/* Video Button */}
                     {intro_video_url && (
                         <div
@@ -192,13 +192,13 @@ const TutorCard = ({ request }) => {
                                     {" Languages: "}
                                     {language_preferences}
                                 </span>
-                            )}
+                        )}
                             {/* Member Since */}
-                            <span>
+                                <span>
                                 <i className="icon icon-book tu-purpleclr"></i>
                                 {" Member Since: "}
                                 {formatDate(created_at)}
-                            </span>
+                                </span>
                         </div>
                     </div>
 

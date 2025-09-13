@@ -11,7 +11,8 @@ import TutorTabs from '@/components/jobDetailJob/TutorTabs';
   const getData = async (slug) => {
     try {
       const db = await pool;
-      const q = "SELECT * from tutor_requests where url = ?";
+      // const q = "SELECT * from tutor_requests where url = ? ";
+      const q = "SELECT tutor_requests.id as job_id , tutor_requests.*, users.* from tutor_requests left join users on tutor_requests.user_id = users.id where tutor_requests.url = ?";
       const [rows] = await db.query(q, slug);
       return {
         row: rows[0],
@@ -49,7 +50,15 @@ const TutorDetailPage = async ({ params }) => {
                         <RelatedTutors />
                     </div>
                     <div className="col-xl-4 col-xxl-3">
-                      { jobdata && <TutorSidebar tutoring_type={jobdata.tutoring_type} name={jobdata.name} email={jobdata.email} phone={jobdata.phone} /> }
+                      { jobdata && (
+                        <TutorSidebar 
+                          tutoring_type={jobdata.tutoring_type} 
+                          name={jobdata.name} 
+                          email={jobdata.email} 
+                          phone={jobdata.phone}
+                          user_id={jobdata.user_id}
+                        />
+                      ) }
                     </div>
                 </div>
             </div>

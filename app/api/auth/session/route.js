@@ -2,16 +2,19 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../[...nextauth]/route';
 import pool from '@/lib/db';
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+
 export async function GET(request) {
   try {
     const session = await getServerSession(authOptions);
     
     if (!session) {
-      console.log('No session found in livetutors');
+      //console.log('No session found in livetutors');
       return Response.json({ error: 'Not authenticated' }, { status: 401 });
     }
 
-    console.log('Session found in livetutors:', session);
+    //console.log('Session found in livetutors:', session);
 
     // Get the latest valid session token from database for this user
     const [sessionRows] = await pool.query(
@@ -30,7 +33,7 @@ export async function GET(request) {
 
     console.log('Valid session found, expires at:', expires);
 
-    console.log('Session tokens from database:', { sessionToken, accessToken });
+    //console.log('Session tokens from database:', { sessionToken, accessToken });
 
     const responseData = {
       user: {
@@ -44,7 +47,7 @@ export async function GET(request) {
       expires: expires.toISOString()
     };
 
-    console.log('Sending session data to dashboard:', responseData);
+    //console.log('Sending session data to dashboard:', responseData);
 
     return Response.json(responseData);
 

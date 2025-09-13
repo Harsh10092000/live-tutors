@@ -5,14 +5,35 @@ import Image from 'next/image';
 import { useSplitTags } from '../common/hooks/useSplitTags.jsx';
 
 import { useSession } from 'next-auth/react';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import dynamic from 'next/dynamic';
+const ContactRequestModal = dynamic(() => import('../common/ContactRequestModal'), { ssr: false });
 import { formatTutoringTypeDisplayTitle, formatTutoringType, formatDate, hiddenPhoneNumber } from '../common';
 const TutorProfile = ({ jobdata }) => {
     const { data: session, status } = useSession();
+    const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
     const isLoggedIn = status === "authenticated";
     const userID = session?.user?.id;
-    const isAddedByMe = userID === jobdata.user_id;
+    const isAddedByMe = (userID != null) && (jobdata?.user_id != null) && (String(userID) === String(jobdata.user_id));
+    
+    const [openModal, setOpenModal] = React.useState(false);
+
+    const handleLetsTalk = (e) => {
+        e.preventDefault();
+        const query = searchParams?.toString();
+        const currentUrl = typeof window !== 'undefined' ? window.location.href : (query ? `${pathname}?${query}` : pathname);
+        if (status !== 'authenticated') {
+            router.push(`/login?callbackUrl=${encodeURIComponent(currentUrl)}`);
+            return;
+        }
+        // Authenticated: open contact modal
+        setOpenModal(true)
+    }
     
     const {
+        job_id,
         tutoring_type,
         subjects,
         city,
@@ -178,13 +199,23 @@ const TutorProfile = ({ jobdata }) => {
                 {/* <li>
                     <Link href="#" className="tu-linkheart"><i className="icon icon-heart"></i><span>Save</span></Link>
                 </li> */}
-                <li><Link href="/login" className="tu-secbtn">Let&apos;s talk now</Link></li>
+                <li><a href="#" onClick={handleLetsTalk} className="tu-secbtn">Let&apos;s talk now</a></li>
                 <li>
                     <Link href="/tutor-detail" className="tu-primbtn">Book a tution</Link>
                 </li>
             </ul>
         </div>
         )}   
+
+{console.table("jobdata", jobdata)}
+
+        <ContactRequestModal 
+          open={openModal}
+          onClose={() => setOpenModal(false)}
+          jobUrl={jobdata?.url}
+          jobTitle={formatTitle()}
+          jobId={jobdata?.job_id}
+        />
         
     </div>
   );

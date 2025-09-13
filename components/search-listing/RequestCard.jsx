@@ -3,10 +3,20 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useSession } from 'next-auth/react';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import dynamic from 'next/dynamic';
+const ContactRequestModal = dynamic(() => import('../common/ContactRequestModal'), { ssr: false });
 
 const RequestCard = ({ request }) => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [openModal, setOpenModal] = React.useState(false);
   const {
     id,
+    user_id,
     subjects,
     location,
     phone,
@@ -18,7 +28,7 @@ const RequestCard = ({ request }) => {
     gender_preference,
     budget,
     languages,
-    status,
+    status: requestStatus,
     attachment_urls,
     url,
     state,
@@ -81,9 +91,25 @@ const RequestCard = ({ request }) => {
     }
   };
 
+  // Check if this job was added by current user (force boolean to avoid rendering 0)
+  const isAddedByMe = (session?.user?.id != null) && (user_id != null) && (String(session.user.id) === String(user_id));
+
+  const handleLetsChat = (e) => {
+    e.preventDefault();
+    const query = searchParams?.toString();
+    const currentUrl = typeof window !== 'undefined' ? window.location.href : (query ? `${pathname}?${query}` : pathname);
+    if (status !== 'authenticated') {
+      router.push(`/login?callbackUrl=${encodeURIComponent(currentUrl)}`);
+      return;
+    }
+    // If authenticated, open contact modal
+    setOpenModal(true)
+  }
+
   return (
     <div className="tu-listinginfo">
       <span className="tu-cardtag"></span>
+     
       <div className="tu-listinginfo_wrapper">
         <div className="tu-listinginfo_title">
           <div className="tu-listinginfo-img">
@@ -99,9 +125,9 @@ const RequestCard = ({ request }) => {
             <div className="tu-listing-heading">
               <h5>
                 <Link href={`/tutor-jobs/${url}`}>{formatTitle()}</Link>
-                {status && (
+                {requestStatus && (
                   <i 
-                    className={`icon icon-check-circle ${getStatusColor(status)}`} 
+                    className={`icon icon-check-circle ${getStatusColor(requestStatus)}`} 
                     data-tippy-trigger="mouseenter" 
                     data-tippy-html="#tu-status" 
                     data-tippy-interactive="true" 
@@ -172,14 +198,30 @@ const RequestCard = ({ request }) => {
         <div className="tu-iconheart">
           <i className={`icon icon-map-pin ${getTutoringTypeColor(tutoring_type)}`}></i>
           <span>{formatTutoringTypeDisplay(tutoring_type)}</span>
+          {isAddedByMe && (
+        <div className="tu-added-by-me-badge">
+          <span style={{padding: '0 5px 2px'}}>|</span>
+          <span>Added by me</span>
+        </div>
+      )}
         </div>
         <div className="tu-btnarea">
           {/* {attachment_urls && (
             <Link href={attachment_urls} className="tu-secbtn" target="_blank">View Attachment</Link>
           )} */}
-           <Link href="/login" className="tu-secbtn">Let's chat</Link>
-           <Link href={`/tutor-jobs/${url}`} className="tu-primbtn">View details</Link>
+          {!isAddedByMe && (
+            <a href="#" onClick={handleLetsChat} className="tu-secbtn">Let's chat</a>
+          )}
+          <Link href={`/tutor-jobs/${url}`} className="tu-primbtn">View details</Link>
         </div>
+        {/* {id} */}
+        <ContactRequestModal 
+          open={openModal} 
+          onClose={() => setOpenModal(false)} 
+          jobUrl={url}
+          jobTitle={formatTitle()}
+          jobId={id}
+        />
       </div>
     </div>
   );

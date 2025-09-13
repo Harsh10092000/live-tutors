@@ -476,3 +476,416 @@ a {
                         width: 109px !important;
                         border-radius: 5px;
                       }
+
+/* =========================
+   Wallet Page Styles (Custom)
+   ========================= */
+
+/* Accent utility */
+.tu-green { color: #22c55e !important; }
+
+/* Banner variant for wallet */
+.tu-bannerv2 {
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  border-radius: 12px;
+  padding: 30px 24px;
+  margin-bottom: 30px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+.tu-bannerv2 .tu-banner_title h1 { margin-bottom: 10px; }
+.tu-bannerv2 .tu-banner_title p { color: #64748b; max-width: 680px; }
+.tu-bannerv1_img img { max-width: 100%; height: auto; }
+
+/* Icon holder for list items */
+.tu-icon-holder {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6A307D;
+  font-size: 18px;
+  box-shadow: inset 0 0 0 1px #eee;
+}
+
+/* Wrappers and spacing */
+.tu-boxwrapper { margin-top: 20px; }
+.tu-tabswrapper { padding-top: 10px; }
+
+/* Input with button inline */
+.tu-inputbtn {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.tu-inputbtn .form-control {
+  height: 48px;
+  border: 1.5px solid #eeeeee;
+  border-radius: 6px;
+  padding: 0 16px;
+  font-weight: 600;
+  color: #1C1C1C;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.tu-inputbtn .form-control:focus {
+  border-color: #6A307D;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(106, 48, 125, 0.08);
+}
+
+/* Aside action buttons */
+.tu-asidewrapper .tu-btnarea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.tu-asidewrapper .tu-btnarea .tu-primbtn,
+.tu-asidewrapper .tu-btnarea .tu-secbtn {
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* Pricing (coin packages) */
+.tu-pricinglist { display: flex; gap: 20px; flex-wrap: wrap; }
+.tu-planlist {
+  flex: 1 1 260px;
+  border: 1.5px solid #eeeeee;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+.tu-planlist .tu-plandetail h4 span { color: #1C1C1C; }
+.tu-popularplan {
+  border-color: #f59e0b;
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.15);
+  position: relative;
+}
+.tu-popularplantop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 12px;
+  background: linear-gradient(90deg, #fde68a, #f59e0b);
+  color: #7c2d12;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Currency labels */
+.tu-labels { display: flex; gap: 10px; flex-wrap: wrap; padding: 10px 0; }
+.tu-labels li { list-style: none; }
+.tu-labels li span {
+  display: inline-block;
+  border: 1.5px solid #eeeeee;
+  border-radius: 6px;
+  padding: 8px 14px;
+  background: #ffffff;
+  font-weight: 600;
+  color: #1C1C1C;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.tu-labels li span.active,
+.tu-labels li span:hover { border-color: #6A307D; color: #6A307D; }
+
+/* Listing (transactions) */
+.tu-listinginfo-holder .tu-listinginfo {
+  border: 1.5px solid #eeeeee;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+.tu-listinginfo .tu-listinginfo_img figure { margin: 0; }
+.tu-listinginfo_title h5 { margin: 0 0 4px 0; font-weight: 600; color: #1C1C1C; }
+.tu-listing-location { color: #64748b; font-size: 13.5px; display: flex; align-items: center; gap: 6px; }
+.tu-listinginfo_price { align-items: center; gap: 10px; }
+.tu-listinginfo_btn i { font-size: 18px; }
+
+/* Gradient primary button enhancement */
+/* .tu-primbtn-gradient { background-image: linear-gradient(90deg, #6A307D, #9b4bb2); color: #fff; border: none; }
+.tu-primbtn-gradient:hover { filter: brightness(1.02); transform: translateY(-1px); } */
+
+/* Responsive tweaks */
+@media (max-width: 991px) {
+  .tu-bannerv2 { padding: 20px 16px; }
+  .tu-pricinglist { gap: 14px; }
+}
+
+/* =========================
+   Wallet Page - Refined UI Kit
+   ========================= */
+.wallet-hero {
+  /* background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%);
+  border: 1px solid #eef2ff;
+  border-radius: 14px;
+  padding: 28px;
+  margin-bottom: 28px;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06); */
+}
+.wallet-hero h1 {
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  /* color: #0f172a; */
+  color: #fff;
+}
+.wallet-hero p {
+  color: #64748b;
+  max-width: 680px;
+  color: #fff;
+}
+.wallet-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  /* background: linear-gradient(90deg, #6A307D, #9b4bb2); */
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(106, 48, 125, 0.25);
+}
+.wallet-cta i { font-size: 18px; }
+
+/* Stats */
+.wallet-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 28px; }
+.wallet-stat {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex; align-items: center; gap: 14px;
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.06);
+}
+.wallet-stat .iconwrap {
+  width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  background: #f3f4f6; color: #6A307D; font-size: 20px; box-shadow: inset 0 0 0 1px #eee;
+}
+.wallet-stat .meta small { color: #6b7280; font-weight: 600; }
+.wallet-stat .meta h3 { margin: 2px 0 0 0; font-weight: 800; color: #111827; }
+
+/* Tabs */
+.wallet-tabs { display: flex; gap: 8px; border-bottom: 1px solid #eee; }
+.wallet-tab { appearance: none; border: 0; background: transparent; padding: 12px 14px; font-weight: 700; color: #6b7280; border-bottom: 2px solid transparent; display: flex; align-items: center; gap: 8px; }
+.wallet-tab:hover { color: #1f2937; }
+.wallet-tab.active { color: #6A307D; border-bottom-color: #6A307D; }
+
+/* Cards */
+.wallet-card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 18px; box-shadow: 0 4px 12px rgba(16, 24, 40, 0.06); }
+.wallet-card + .wallet-card { margin-top: 18px; }
+
+/* Chips */
+.wallet-chips { display: flex; gap: 10px; flex-wrap: wrap; }
+.wallet-chip { border: 1.5px solid #eee; background: #fff; color: #111827; border-radius: 999px; padding: 8px 14px; font-weight: 700; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.wallet-chip.active, .wallet-chip:hover { border-color: #6A307D; color: #6A307D; }
+
+/* Order summary */
+.wallet-summary { display: grid; gap: 8px; }
+.wallet-summary .row { display: flex; justify-content: space-between; font-weight: 600; color: #334155; }
+.wallet-summary .row.total { font-size: 18px; color: #111827; }
+.wallet-summary hr { border: none; height: 1px; background: #eee; margin: 10px 0; }
+
+/* Transactions */
+.wallet-transaction { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px; border-radius: 10px; border: 1px solid #eee; background: #fff; box-shadow: 0 2px 8px rgba(16, 24, 40, 0.04); }
+.wallet-transaction .left { display: flex; align-items: center; gap: 12px; }
+.wallet-transaction .iconwrap { width: 42px; height: 42px; border-radius: 50%; background: #f1f5f9; color: #6A307D; display: flex; align-items: center; justify-content: center; }
+.wallet-transaction .title { font-weight: 700; color: #111827; }
+.wallet-transaction .meta { font-size: 13px; color: #6b7280; }
+.wallet-amount.positive { color: #059669; font-weight: 800; }
+.wallet-amount.negative { color: #dc2626; font-weight: 800; }
+.wallet-status { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; }
+.wallet-status.success { color: #059669; }
+.wallet-status.pending { color: #d97706; }
+.wallet-status.failed { color: #dc2626; }
+
+/* Buttons */
+.wallet-btn-primary { background: linear-gradient(90deg, #6A307D, #9b4bb2); color: #fff; border: none; border-radius: 10px; padding: 12px 16px; font-weight: 800; display: inline-flex; gap: 10px; align-items: center; justify-content: center; width: 100%; box-shadow: 0 8px 20px rgba(106,48,125,0.25); }
+.wallet-btn-primary:hover { filter: brightness(1.03); transform: translateY(-1px); }
+
+/* Responsive */
+@media (max-width: 991px) {
+  .wallet-stats { grid-template-columns: 1fr; }
+}
+
+/* =========================
+   Wallet - Highlighted Action Cards
+   ========================= */
+.wallet-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 16px; }
+.wallet-action {
+  position: relative; overflow: hidden; border-radius: 14px; padding: 18px; color: #fff;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  box-shadow: 0 10px 26px rgba(16,24,40,0.18);
+}
+.wallet-action .title { font-weight: 800; font-size: 18px; }
+.wallet-action .sub { opacity: .9; font-weight: 600; }
+.wallet-action .cta { background: #fff; color: #111827; border: none; border-radius: 999px; padding: 8px 14px; font-weight: 800; }
+.wallet-cta.white { background: #fff; color: #111827; border: none;  padding: 8px 14px; font-weight: 800; }
+/* .wallet-action.purple { background: linear-gradient(90deg,#6A307D,#9b4bb2); } */
+.wallet-action.teal { background: linear-gradient(90deg, #3594a7, #045767); }
+
+.wallet-action i { font-size: 28px; opacity: .95; }
+
+@media (max-width: 991px) { .wallet-actions { grid-template-columns: 1fr; } }
+
+/* =========================
+   Wallet - Section Heading
+   ========================= */
+.wallet-section-head { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; border: 1px solid #f0e7f4; background: linear-gradient(90deg, rgba(106,48,125,0.06), rgba(155,75,178,0.06)); box-shadow: 0 4px 12px rgba(106,48,125,0.08); }
+.wallet-section-head i { color: #6A307D; }
+.wallet-section-head h3 { margin: 0; font-weight: 800; color: #1C1C1C; }
+
+/* =========================
+   Wallet - Package Cards (Modern)
+   ========================= */
+.wallet-packages { display: grid; grid-template-columns: repeat(6, minmax(180px, 1fr)); gap: 16px; }
+@media (max-width: 1400px) { .wallet-packages { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 1200px) { .wallet-packages { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px)  { .wallet-packages { grid-template-columns: repeat(2, 1fr); } }
+
+.wallet-plan { position: relative; border-radius: 14px; padding: 16px; cursor: pointer; background: #fff; border: 1.5px solid #eee; box-shadow: 0 4px 12px rgba(16,24,40,0.06); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.wallet-plan:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(16,24,40,0.10); }
+.wallet-plan.selected { border-color: #6A307D; box-shadow: 0 14px 32px rgba(106,48,125,.20); }
+.wallet-plan .head { display: flex; align-items: center; gap: 8px; font-weight: 800; color: #111827; }
+.wallet-plan .head i { color: #f59e0b; }
+.wallet-plan .price { margin-top: 8px; display: flex; align-items: baseline; gap: 8px; }
+.wallet-plan .price .now { font-size: 20px; font-weight: 900; color: #111827; }
+.wallet-plan .price .old { font-size: 14px; color: #9ca3af; text-decoration: line-through; }
+.wallet-plan .save { margin-top: 6px; font-size: 12px; font-weight: 800; color: #059669; }
+.wallet-plan .badge { position: absolute; top: 10px; right: 10px; font-size: 11px; font-weight: 800; color: #7c2d12; background: linear-gradient(90deg,#fde68a,#f59e0b); padding: 4px 8px; border-radius: 999px; }
+
+/* =========================
+   Wallet - Order Summary
+   ========================= */
+.order-summary { display: grid; gap: 8px; }
+.order-summary .os-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; }
+.order-summary .os-row + .os-row { border-top: 1px dashed #eee; }
+.order-summary .left { display: flex; align-items: center; gap: 10px; }
+.order-summary .left .iconwrap { width: 36px; height: 36px; font-size: 16px; }
+.order-summary .label { font-weight: 700; color: #334155; }
+.order-summary .value { font-weight: 800; color: #111827; }
+.order-summary .value.muted { color: #64748b; font-weight: 700; text-decoration: line-through; }
+.order-summary .save-badge { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; padding: 4px 8px; border-radius: 999px; font-size: 12px; font-weight: 800; }
+.order-summary .rate { color: #64748b; font-weight: 700; }
+.order-summary hr { border: none; height: 1px; background: #eee; margin: 8px 0; }
+
+/* Distinguish total bar from CTA button */
+.order-summary .os-totalbar { 
+  display: flex; align-items: center; justify-content: space-between; 
+  background: #f6f0fa; 
+  color: #6A307D; 
+  border: 1px solid #eadcf3; 
+  border-radius: 12px; 
+  padding: 12px 16px; 
+  box-shadow: 0 2px 8px rgba(106,48,125,0.10); 
+  font-weight: 800; 
+}
+.order-summary .os-totalbar .title { opacity: .95; }
+.order-summary .os-totalbar .amount { font-size: 18px; }
+
+/* =========================
+   Login Required Modal
+   ========================= */
+   .lr-overlay { position: fixed; inset: 0; background: rgba(17,24,39,0.5); display: flex; align-items: center; justify-content: center; z-index: 1050; }
+   .lr-modal { width: 100%; max-width: 420px; background: #fff; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); overflow: hidden; }
+   .lr-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: linear-gradient(90deg,#f6f0fa,#ffffff); border-bottom: 1px solid #eee; }
+   .lr-title { margin: 0; font-weight: 800; color: #1C1C1C; display: flex; align-items: center; gap: 8px; }
+   .lr-close { background: transparent; border: none; color: #64748b; font-size: 18px; }
+   .lr-body { padding: 16px; color: #334155; font-weight: 600; }
+   .lr-actions { display: flex; gap: 10px; padding: 14px 16px; justify-content: flex-end; background: #fafafa; border-top: 1px solid #eee; }
+
+
+/* =========================
+   Pricing Page Styles
+   ========================= */
+.pricing-hero { background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%); border: 1px solid #eef2ff; border-radius: 14px; padding: 28px; margin-bottom: 24px; box-shadow: 0 6px 18px rgba(16,24,40,.06); }
+.pricing-hero h1 { margin: 0 0 6px 0; font-weight: 800; color: #0f172a; }
+.pricing-hero p { color: #64748b; font-weight: 700; max-width: 720px; }
+
+.pricing-benefits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px; }
+@media (max-width: 1200px){ .pricing-benefits { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px){ .pricing-benefits { grid-template-columns: 1fr; } }
+.benefit-card { border: 1px solid #eee; background: #fff; border-radius: 12px; padding: 16px; display: flex; gap: 12px; align-items: flex-start; box-shadow: 0 4px 12px rgba(16,24,40,.06); }
+.benefit-card .iconwrap { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: #f3f4f6; color: #6A307D; font-size: 18px; box-shadow: inset 0 0 0 1px #eee; }
+.benefit-card h6 { margin: 0 0 4px 0; font-weight: 800; color: #111827; }
+.benefit-card p { margin: 0; color: #64748b; font-weight: 700; font-size: 14px; }
+
+.trust-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 18px 0; }
+@media (max-width: 768px){ .trust-strip { grid-template-columns: 1fr; } }
+.trust-item { border: 1px dashed #e5e7eb; background: #fafafa; border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; color: #334155; font-weight: 700; }
+.trust-item i { color: #6A307D; }
+
+/* Adjusted grid to show two rows (3 cols) on desktop */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(240px,1fr)); gap: 16px; }
+@media (max-width: 992px){ .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px){ .pricing-grid { grid-template-columns: 1fr; } }
+
+/* =========================
+   Pricing Page - Enhanced Visuals
+   ========================= */
+.pricing-currency { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0 20px; }
+.pricing-chip { border: 1.5px solid #eee; background: #fff; color: #111827; border-radius: 999px; padding: 10px 16px; font-weight: 800; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.pricing-chip.active, .pricing-chip:hover { border-color: #6A307D; color: #6A307D; }
+
+.pricing-card { position: relative; overflow: hidden; }
+.pricing-card .accent { position: absolute; inset: 0 0 auto 0; height: 6px; background: linear-gradient(90deg,#6A307D,#9b4bb2); opacity: .9; }
+.pricing-card:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(16,24,40,.12); transition: all .18s ease; }
+.pricing-card .ribbon { position: absolute; top: 10px; left: -42px; transform: rotate(-45deg); background: #22c55e; color: #fff; font-weight: 800; padding: 4px 48px; font-size: 11px; box-shadow: 0 4px 10px rgba(34,197,94,.3); }
+
+.pricing-divider { height: 1px; background: linear-gradient(90deg,#eee,#eee 60%, transparent 0); background-size: 12px 1px; margin: 16px 0; }
+
+.pricing-faq { margin-top: 24px; }
+.pricing-faq h3 { margin: 0 0 10px; font-weight: 800; color: #0f172a; }
+.pricing-faq .faq-item { border: 1px solid #eee; background: #fff; border-radius: 12px; padding: 14px 16px; box-shadow: 0 4px 12px rgba(16,24,40,.06); }
+.pricing-faq .faq-item + .faq-item { margin-top: 10px; }
+.pricing-faq .q { font-weight: 800; color: #111827; display: flex; gap: 8px; align-items: center; }
+.pricing-faq .a { color: #64748b; font-weight: 700; margin-top: 6px; }
+
+.pricing-card .head { display: flex; align-items: center; gap: 8px; font-weight: 800; color: #111827; }
+.pricing-card .head i { color: #f59e0b; }
+.pricing-card .price { margin-top: 8px; display: flex; align-items: baseline; gap: 8px; }
+.pricing-card .price .now { font-size: 20px; font-weight: 900; color: #111827; }
+.pricing-card .price .old { font-size: 14px; color: #9ca3af; text-decoration: line-through; }
+.pricing-card .save { margin-top: 6px; font-size: 12px; font-weight: 800; color: #059669; }
+.pricing-card .features { margin-top: 10px; display: grid; gap: 6px; }
+.pricing-card .features span { display: flex; align-items: center; gap: 8px; color: #334155; font-weight: 700; font-size: 14px; }
+.pricing-card .cta { margin-top: 12px; }
+
+/* =========================
+   Pricing Page - Card Redesign
+   ========================= */
+.pricing-card { position: relative; border: 1.5px solid #eee; border-radius: 14px; background: #fff; box-shadow: 0 8px 20px rgba(16,24,40,.08); padding: 0; overflow: hidden; }
+.pricing-card .card-head { padding: 14px 16px; background: #f5f8fc;}
+.pricing-card .card-head h5 { margin: 0; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+.pricing-card .card-body { padding: 14px 16px; }
+.pricing-card .price-row { display: flex; align-items: baseline; gap: 10px; margin-top: 8px; }
+.pricing-card .price-row .now { font-size: 22px; font-weight: 900; color: #111827; }
+.pricing-card .price-row .old { font-size: 14px; color: #9ca3af; text-decoration: line-through; }
+.pricing-card .save-chip { position: absolute; top: 10px; right: 12px; background: #22c55e; color: #fff; font-weight: 800; font-size: 11px; padding: 4px 8px; border-radius: 999px; box-shadow: 0 4px 10px rgba(34,197,94,.3); }
+.pricing-card .per-hundred { margin-top: 6px; color: #64748b; font-weight: 700; font-size: 12px; }
+.pricing-card .features { margin-top: 10px; display: grid; gap: 6px; }
+.pricing-card .features span { display: flex; align-items: center; gap: 8px; color: #334155; font-weight: 700; font-size: 14px; }
+.pricing-card .cta { padding: 14px 16px 16px; }
+.btn-wide { width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+
+/* Popular ribbon */
+.pricing-card .ribbon { position: absolute; top: 12px; left: -42px; transform: rotate(-45deg); background: #22c55e; color: #fff; font-weight: 800; padding: 4px 48px; font-size: 11px; box-shadow: 0 4px 10px rgba(34,197,94,.3); }
+
+
+.wallet-wrapper {
+  padding-top: 0px !important;
+  /* background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%); */
+  border: 1px solid #eef2ff;
+  border-radius: 14px;
+  padding: 28px;
+  margin-bottom: 28px;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+  padding: 20px 0;
+  /* background-color: #0A0F26; */
+  background: linear-gradient(135deg, #0a0f26 0%, #07abca 100%);
+}

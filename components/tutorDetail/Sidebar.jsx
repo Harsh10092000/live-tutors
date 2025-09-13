@@ -122,7 +122,7 @@ const Sidebar = ({tutoring_preferences, name, phone, email, can_do_assignment, t
                 <h6>
                     Click the button below to buy a package & unlock the contact details
                 </h6>
-                <a href="package.html" className="tu-primbtn tu-btngreen"><span>Unlock feature</span><i className="icon icon-lock"></i></a>
+                <a href="/wallet" className="tu-primbtn tu-btngreen"><span>Unlock feature</span><i className="icon icon-lock"></i></a>
             </div>
         </aside>
     )

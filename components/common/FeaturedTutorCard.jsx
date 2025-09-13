@@ -84,22 +84,15 @@ const FeaturedTutorCard = ({item, index}) => {
                     <li><span>From<em>₹{item.fee_min || 'N/A'}/{item.fee_charged_for || 'hr'}</em></span></li>
                 </ul>
             </div>
-            <div className="tu-instructors_footer" style={{padding: '5px 15px'}}>
-                <div style={{ fontSize: "12px", color: "#999" }}>
+            <div className="tu-instructors_footer" style={{padding: '5px 15px' }}>
+                <div style={{ fontSize: "12px", color: "#999" ,  paddingTop: '6px' }}>
                     Member since 
                     <span style={{fontWeight: "bold", display: "block", lineHeight: '5px'}}>{formatDate(item.created_at)}</span>
                 </div>
                 <div className="tu-rating">
-                    <Link href={`/tutors/${item.tutor_id || ''}`} style={{
-                        background: "#ff6b35",
-                        color: "#fff",
-                        padding: "6px 12px",
-                        borderRadius: "15px",
-                        textDecoration: "none",
-                        fontSize: "13px",
-                        fontWeight: "500"
-                    }}>
-                        View Profile
+                    <Link href={`/tutors/${item.tutor_id || ''}`} className="view-profile-btn">
+                        <span>View Profile</span>
+                        <i className="icon icon-arrow-right"></i>
                     </Link>
                 </div>
             </div>
